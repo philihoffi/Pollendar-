@@ -7,6 +7,8 @@ services:
       - CALENDAR_ID=${CALENDAR_ID}
       - CREDENTIALS_PATH=/app/credentials/service_account.json
       - ALLOWED_USER_IDS=${ALLOWED_USER_IDS}
+    volumes:
+      - /volume1/docker/pollendar/service_account.json:/app/credentials/service_account.json:ro
     logging:
       driver: json-file
       options:
