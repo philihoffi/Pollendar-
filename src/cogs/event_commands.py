@@ -21,7 +21,7 @@ class EventCog(commands.Cog):
 
     @app_commands.command(name='hallo', description='Test – der Bot antwortet')
     async def hallo(self, interaction: discord.Interaction):
-        await interaction.response.send_message('👋 Hallo!')
+        await interaction.response.send_message('👋 Hallo!!!!!!')
 
     @event.command(name='add', description='Neues Event im Kalender anlegen')
     @app_commands.describe(

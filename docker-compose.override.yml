@@ -1,4 +1,0 @@
-services:
-  discord-calendar-bot:
-    volumes:
-      - ./credentials/service_account.json:/app/credentials/service_account.json:ro
