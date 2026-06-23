@@ -1,0 +1,4 @@
+services:
+  discord-calendar-bot:
+    environment:
+      - CREDENTIALS_SOURCE=./credentials/service_account.json

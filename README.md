@@ -68,12 +68,12 @@ Der Bot stellt nur ausgehende HTTPS-Verbindungen her. Es wird kein eingehender P
 
 ## Portainer Deployment
 
-### 4. Config anlegen
+### 4. Service-Account-JSON aufs NAS legen
 
-1. Portainer → **Configs** → **Add config**
-2. Name: `service_account_config`
-3. Inhalt: gesamten Inhalt der `service_account.json` einfügen
-4. **Create config**
+Lege die `service_account.json` an einem festen Pfad auf deinem NAS ab, z. B.:
+```
+/volume1/docker/pollendar/service_account.json
+```
 
 ### 5. Stack anlegen
 
@@ -88,6 +88,7 @@ Der Bot stellt nur ausgehende HTTPS-Verbindungen her. Es wird kein eingehender P
 |---|---|
 | `DISCORD_TOKEN` | Dein Discord Bot-Token |
 | `CALENDAR_ID` | Deine Google Calendar-ID |
+| `CREDENTIALS_SOURCE` | Pfad zur `service_account.json` auf dem NAS, z. B. `/volume1/docker/pollendar/service_account.json` |
 | `ALLOWED_USER_IDS` | Discord-IDs (optional, leer = alle erlaubt) |
 
 7. **Deploy the stack**
