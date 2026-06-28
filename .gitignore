@@ -11,6 +11,9 @@ venv/
 # Service account key (wird via Portainer Config gemountet)
 credentials/*.json
 
+# Local data (Docker Volume)
+data/
+
 # IDE
 .idea/
 .vscode/

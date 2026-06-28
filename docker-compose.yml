@@ -9,6 +9,7 @@ services:
       - ALLOWED_USER_IDS=${ALLOWED_USER_IDS}
     volumes:
       - ${CREDENTIALS_SOURCE}:/app/credentials/service_account.json:ro
+      - ./data:/app/data
     logging:
       driver: json-file
       options:
