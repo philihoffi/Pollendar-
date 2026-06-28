@@ -1,8 +1,8 @@
 # Pollendar - Discord Calendar Bot
 
-[![Lint](https://github.com/philihoffi/Pollendar-/actions/workflows/lint.yml/badge.svg)](https://github.com/philihoffi/Pollendar-/actions/workflows/lint.yml)
-[![Test](https://github.com/philihoffi/Pollendar-/actions/workflows/test.yml/badge.svg)](https://github.com/philihoffi/Pollendar-/actions/workflows/test.yml)
-[![Docker](https://github.com/philihoffi/Pollendar-/actions/workflows/docker.yml/badge.svg)](https://github.com/philihoffi/Pollendar-/actions/workflows/docker.yml)
+[![Lint](https://github.com/philihoffi/Pollendar/actions/workflows/lint.yml/badge.svg)](https://github.com/philihoffi/Pollendar/actions/workflows/lint.yml)
+[![Test](https://github.com/philihoffi/Pollendar/actions/workflows/test.yml/badge.svg)](https://github.com/philihoffi/Pollendar/actions/workflows/test.yml)
+[![Docker](https://github.com/philihoffi/Pollendar/actions/workflows/docker.yml/badge.svg)](https://github.com/philihoffi/Pollendar/actions/workflows/docker.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 Pollendar is a Discord bot designed for calendar management using Slash Commands. It synchronizes events with the Google Calendar API, ensuring your schedule is accessible across various platforms like Apple Calendar (via CalDAV), Google Calendar clients, and other integrated services.
@@ -113,7 +113,7 @@ Use the following environment variables in your `docker-compose.yml` or `.env` f
 ### 6. Portainer Stack (Optional)
 
 1. Create a new Stack in Portainer.
-2. Point it to this repository: `https://github.com/philihoffi/Pollendar-`.
+2. Point it to this repository: `https://github.com/philihoffi/Pollendar`.
 3. Fill in the **Environment variables** as listed above.
 4. **Deploy the stack**.
 
