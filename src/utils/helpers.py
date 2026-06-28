@@ -1,5 +1,5 @@
 import logging
-from datetime import datetime, date, time
+from datetime import date, datetime, time
 
 import discord
 import pytz

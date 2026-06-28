@@ -1,6 +1,5 @@
 import logging
-from datetime import datetime, timedelta, date
-from typing import Optional
+from datetime import date, datetime, timedelta
 
 from google.oauth2 import service_account
 from googleapiclient.discovery import build
@@ -30,7 +29,7 @@ class GoogleCalendarClient:
     def _short_id(self, event_id: str) -> str:
         return event_id[:8]
 
-    def _search_by_short_id(self, short_id: str) -> Optional[str]:
+    def _search_by_short_id(self, short_id: str) -> str | None:
         if short_id in self._short_id_cache:
             return self._short_id_cache[short_id]
 
@@ -66,7 +65,7 @@ class GoogleCalendarClient:
             logger.error(f"Failed to search events by short ID: {e}")
             raise
 
-    def add_event(self, title: str, start_dt: datetime, end_dt: Optional[datetime] = None) -> str:
+    def add_event(self, title: str, start_dt: datetime, end_dt: datetime | None = None) -> str:
         if end_dt is None:
             end_dt = start_dt + timedelta(hours=1)
 
@@ -148,14 +147,12 @@ class GoogleCalendarClient:
             logger.error(f"Failed to list events: {e}")
             raise
 
-    def update_event(self, short_id: str, title: Optional[str] = None,
-                     start_dt: Optional[datetime] = None,
-                     end_dt: Optional[datetime] = None) -> dict:
+    def update_event(self, short_id: str, title: str | None = None,
+                     start_dt: datetime | None = None,
+                     end_dt: datetime | None = None) -> dict:
         full_id = self._search_by_short_id(short_id)
         if not full_id:
             raise ValueError(f"Event mit ID {short_id} nicht gefunden.")
-
-        event = self.get_event(full_id)
 
         body = {}
         if title is not None:

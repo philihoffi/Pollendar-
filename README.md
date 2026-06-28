@@ -1,5 +1,10 @@
 # Pollendar - Discord Calendar Bot
 
+[![Lint](https://github.com/philihoffi/Pollendar-/actions/workflows/lint.yml/badge.svg)](https://github.com/philihoffi/Pollendar-/actions/workflows/lint.yml)
+[![Test](https://github.com/philihoffi/Pollendar-/actions/workflows/test.yml/badge.svg)](https://github.com/philihoffi/Pollendar-/actions/workflows/test.yml)
+[![Docker](https://github.com/philihoffi/Pollendar-/actions/workflows/docker.yml/badge.svg)](https://github.com/philihoffi/Pollendar-/actions/workflows/docker.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 Pollendar is a Discord bot designed for calendar management using Slash Commands. It synchronizes events with the Google Calendar API, ensuring your schedule is accessible across various platforms like Apple Calendar (via CalDAV), Google Calendar clients, and other integrated services.
 
 ## 🚀 Features
@@ -31,9 +36,19 @@ The bot only establishes outgoing HTTPS connections. No incoming ports or web se
 │   │   └── event_commands.py     # Discord slash commands (/event)
 │   └── utils/
 │       └── helpers.py            # Validation, access control, and formatting
+├── tests/                        # Unit tests (pytest)
+│   └── test_helpers.py
+├── .github/
+│   ├── workflows/                # GitHub Actions CI/CD
+│   │   ├── lint.yml              # Ruff linting
+│   │   ├── test.yml              # Pytest
+│   │   └── docker.yml            # Build & push to GHCR
+│   ├── ISSUE_TEMPLATE/           # Bug report & feature request templates
+│   └── PULL_REQUEST_TEMPLATE.md  # PR template
 ├── .env.example                  # Environment variables template
 ├── docker-compose.yml            # Docker deployment configuration
 ├── Dockerfile                    # Container build instructions
+├── pyproject.toml                # Project config (ruff, pytest)
 ├── requirements.txt              # Python dependencies
 └── test_calendar_connection.py   # Connection test script
 ```

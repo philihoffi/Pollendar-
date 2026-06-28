@@ -8,7 +8,12 @@ from discord.ui import Modal, TextInput
 
 from src.calendar_client import GoogleCalendarClient
 from src.utils.helpers import (
-    parse_date, parse_time, format_dt, format_date, is_allowed, TZ,
+    TZ,
+    format_date,
+    format_dt,
+    is_allowed,
+    parse_date,
+    parse_time,
 )
 
 logger = logging.getLogger(__name__)
@@ -249,7 +254,8 @@ class EventCog(commands.Cog):
         try:
             full_id = calendar._search_by_short_id(event_id)
             if not full_id:
-                await interaction.response.send_message(f'❌ Kein Event mit Kurz-ID `{event_id}` gefunden.', ephemeral=True)
+                msg = f'❌ Kein Event mit Kurz-ID `{event_id}` gefunden.'
+                await interaction.response.send_message(msg, ephemeral=True)
                 return
             current = calendar.get_event(full_id)
         except Exception:
@@ -274,7 +280,8 @@ class EventCog(commands.Cog):
         try:
             full_id = calendar._search_by_short_id(event_id)
             if not full_id:
-                await interaction.response.send_message(f'❌ Kein Event mit Kurz-ID `{event_id}` gefunden.', ephemeral=True)
+                msg = f'❌ Kein Event mit Kurz-ID `{event_id}` gefunden.'
+                await interaction.response.send_message(msg, ephemeral=True)
                 return
             current = calendar.get_event(full_id)
         except Exception:
