@@ -76,6 +76,13 @@ class SummaryCog(commands.Cog):
             return
 
         channel = self.bot.get_channel(channel_id)
+        if channel is None:
+            try:
+                channel = await self.bot.fetch_channel(channel_id)
+            except (discord.NotFound, discord.Forbidden, discord.HTTPException):
+                logger.warning("Summary channel %s not found or not accessible", channel_id)
+                return
+
         if not channel:
             logger.warning("Summary channel %s not found", channel_id)
             return
