@@ -28,7 +28,12 @@ def load_config() -> dict:
 
 def save_config(data: dict):
     _ensure_data_dir()
-    CONFIG_FILE.write_text(json.dumps(data, indent=2))
+    tmp = CONFIG_FILE.with_suffix(".tmp")
+    try:
+        tmp.write_text(json.dumps(data, indent=2), encoding="utf-8")
+        tmp.replace(CONFIG_FILE)
+    except OSError as e:
+        logger.error("Failed to save config: %s", e)
 
 
 def get_summary_channel_id() -> int | None:
