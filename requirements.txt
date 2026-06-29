@@ -1,5 +1,5 @@
 discord.py>=2.3.0,<3.0.0
 google-api-python-client>=2.198.0,<3.0.0
 google-auth>=2.27.0,<3.0.0
-python-dotenv>=1.0.0,<2.0.0
+python-dotenv>=1.2.2,<2.0.0
 pytz>=2023.3.post1,<2024.0.0
