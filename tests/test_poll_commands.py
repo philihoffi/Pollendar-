@@ -13,10 +13,11 @@ TZ = pytz.timezone("Europe/Berlin")
 
 
 @pytest.fixture(autouse=True)
-def cleanup_polls():
+def cleanup_polls(tmp_path, monkeypatch):
+    import src.utils.storage as storage
+    monkeypatch.setattr(storage, "POLLS_FILE", tmp_path / "polls.json")
     save_polls([])
     yield
-    save_polls([])
 
 
 class TestPollStorage:
