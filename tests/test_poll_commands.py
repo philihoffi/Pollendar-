@@ -68,10 +68,3 @@ class TestPollStorage:
         from datetime import datetime
         datetime.fromisoformat(p["created_at"])
 
-
-class TestPollValidation:
-    def test_poll_requires_at_least_two_options(self):
-        pass
-
-    def test_poll_options_max_ten(self):
-        pass
