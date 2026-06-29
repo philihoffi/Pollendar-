@@ -31,6 +31,7 @@ def parse_allowed_users(raw: str) -> set[int]:
 
 
 intents = discord.Intents.default()
+intents.message_content = True
 bot = commands.Bot(command_prefix='/', intents=intents)
 
 
@@ -54,4 +55,5 @@ async def main():
     async with bot:
         await bot.load_extension('src.cogs.event_commands')
         await bot.load_extension('src.cogs.summary_commands')
+        await bot.load_extension('src.cogs.poll_commands')
         await bot.start(DISCORD_TOKEN)
