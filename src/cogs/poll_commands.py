@@ -181,6 +181,7 @@ class PollCog(commands.Cog):
                 return
 
         await self._do_finalize_by_msg(interaction.channel, msg, interaction.user)
+        await interaction.followup.send('✅ Umfrage ausgewertet.', ephemeral=True)
 
     @tasks.loop(minutes=5)
     async def check_ended_polls(self):
